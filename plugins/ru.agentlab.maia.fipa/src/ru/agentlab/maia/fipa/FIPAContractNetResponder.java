@@ -10,8 +10,11 @@ package ru.agentlab.maia.fipa;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.ACCEPT_PROPOSAL;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.CANCEL;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.CFP;
+<<<<<<< HEAD
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.FAILURE;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.INFORM;
+=======
+>>>>>>> e9ddd18f... Implement FIPA protocols
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.NOT_UNDERSTOOD;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.PROPOSE;
 import static ru.agentlab.maia.fipa.FIPAPerformativeNames.REFUSE;
@@ -23,10 +26,16 @@ import java.util.Map;
 
 import javax.annotation.PreDestroy;
 
+<<<<<<< HEAD
 import ru.agentlab.maia.agent.IGoal;
 import ru.agentlab.maia.agent.IMessage;
 import ru.agentlab.maia.agent.annotation.OnGoalFailed;
 import ru.agentlab.maia.agent.annotation.OnGoalSuccess;
+=======
+import ru.agentlab.maia.agent.IAgent;
+import ru.agentlab.maia.agent.IMessage;
+import ru.agentlab.maia.goal.IGoal;
+>>>>>>> e9ddd18f... Implement FIPA protocols
 import ru.agentlab.maia.message.annotation.OnMessageReceived;
 import ru.agentlab.maia.message.impl.AclMessage;
 
@@ -67,20 +76,29 @@ public class FIPAContractNetResponder extends AbstractResponder {
 			return;
 		case ACCEPT_PROPOSAL:
 			IGoal goal = proposals.get(message.getConversationId());
+<<<<<<< HEAD
 			goalBase.add(goal);
+=======
+			goalBase.addGoal(goal);
+>>>>>>> e9ddd18f... Implement FIPA protocols
 			return;
 		case REJECT_PROPOSAL:
 		case CANCEL:
 		case NOT_UNDERSTOOD:
+<<<<<<< HEAD
 			IGoal g = proposals.remove(message.getConversationId());
 			if (g != null) {
 				initials.remove(g);
 			}
+=======
+			proposals.remove(message.getConversationId());
+>>>>>>> e9ddd18f... Implement FIPA protocols
 			break;
 		}
 	}
 
 	@PreDestroy
+<<<<<<< HEAD
 	public void onDestroy() {
 		initials.forEach((goal, message) -> {
 			goalBase.remove(goal);
@@ -102,6 +120,9 @@ public class FIPAContractNetResponder extends AbstractResponder {
 		if (request != null) {
 			reply(request, FAILURE, "Goal failed");
 		}
+=======
+	public void onDestroy(IAgent agent) {
+>>>>>>> e9ddd18f... Implement FIPA protocols
 	}
 
 	private boolean notMyMessage(IMessage message) {

@@ -16,11 +16,18 @@ import javax.inject.Named;
 import org.semanticweb.owlapi.model.OWLAxiom;
 
 import ru.agentlab.maia.agent.IAgent;
+<<<<<<< HEAD
 import ru.agentlab.maia.agent.IGoalBase;
+=======
+>>>>>>> e9ddd18f... Implement FIPA protocols
 import ru.agentlab.maia.agent.IMessage;
 import ru.agentlab.maia.agent.IRole;
 import ru.agentlab.maia.agent.annotation.Optional;
 import ru.agentlab.maia.container.IContainer;
+<<<<<<< HEAD
+=======
+import ru.agentlab.maia.goal.IGoalBase;
+>>>>>>> e9ddd18f... Implement FIPA protocols
 import ru.agentlab.maia.message.IMessageDeliveryService;
 import ru.agentlab.maia.message.impl.AclMessage;
 import ru.agentlab.maia.time.TimerEvent;
@@ -81,7 +88,11 @@ public class AbstractInitiator {
 	private ScheduledFuture<?> future;
 
 	protected void addGoal(Object event) {
+<<<<<<< HEAD
 		goalBase.add(event);
+=======
+		goalBase.addGoal(event);
+>>>>>>> e9ddd18f... Implement FIPA protocols
 	}
 
 	protected void addEvent(Object event) {
